@@ -1,7 +1,6 @@
 import Image
 import ImageTk
 from Tkinter import Tk, Label
-import thread
 import threading
 
 class ImageHandler(threading.Thread):
@@ -27,13 +26,3 @@ class ImageHandler(threading.Thread):
         self.label.pack()
 
         self.label.mainloop()
-
-
-# app = ImageHandler()
-# print('Now we can continue running code while mainloop runs!')
-# 
-# for i in range(4):
-#     print(i)
-#     app.showImage(raw_input("nextImage..."))
-# 
-# app.exit()

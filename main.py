@@ -10,7 +10,7 @@ fControl.__init__()
 
 print "Connection with Finch robot complete"
 
-fControl.run()
+fControl.makeLoop(3)
 fControl.close()
 
 print "Done"

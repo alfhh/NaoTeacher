@@ -6,6 +6,8 @@ from time import sleep
 class FinchController():
 
     #Finch Setup
+    
+    #Start connection
     def __init__(self):
         #Initialize the finch
         self.finch = Finch()

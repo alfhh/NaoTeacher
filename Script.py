@@ -6,6 +6,7 @@ from ImageHandler import ImageHandler
 from naoqi import ALBroker
 from finchController import FinchController
 from time import sleep
+from Crypto.Random.random import randint
 
 
 class Program():

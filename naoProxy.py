@@ -6,7 +6,7 @@ memory = None
 class NaoProxy(ALModule):
 	
 	def __init__(self, IP):
-		ALModule.__init__(self, "NaoProxy")
+		ALModule.__init__(self, "NaoModule1")
 		
 		global memory
 		memory = ALProxy("ALMemory")
@@ -22,7 +22,7 @@ class NaoProxy(ALModule):
 		self.wordSemaphore = Semaphore(0)
 		
 	def awaitTouchedSensors(self):
-		memory.subscribeToEvent("TouchChanged","NaoProxy","onTouched")
+		memory.subscribeToEvent("TouchChanged","NaoModule1","onTouched")
 		self.touchSemaphore.acquire()
 		
 		return self.touchedSensors
@@ -31,7 +31,7 @@ class NaoProxy(ALModule):
 		"""	
 			Called when sensor is touched
 		"""
-		memory.unsubscribeToEvent("TouchChanged","NaoProxy")
+		memory.unsubscribeToEvent("TouchChanged","NaoModule1")
 		
 		self.touchedSensors = []
 		
@@ -42,14 +42,14 @@ class NaoProxy(ALModule):
 		if len(self.touchedSensors) != 0:
 			self.touchSemaphore.release()
 		else:
-			memory.subscribeToEvent("TouchChanged","NaoProxy","onTouched")
+			memory.subscribeToEvent("TouchChanged","NaoModule1","onTouched")
 			
 	def recognizeWord(self, vocabulary):
 		self.speechRecognition.pause(True)
 		self.speechRecognition.setVocabulary(vocabulary, False)
 		self.speechRecognition.pause(False)
 		
-		memory.subscribeToEvent("WordRecognized","NaoProxy","onWordRecognized")
+		memory.subscribeToEvent("WordRecognized","NaoModule1","onWordRecognized")
 		self.wordSemaphore.acquire()
  		
 		return self.recognizedWord
@@ -58,7 +58,7 @@ class NaoProxy(ALModule):
 		"""	
 			Called when word is recognized
 		"""
-		
+		memory.unsubscribeToEvent("WordRecognized","NaoModule1")
 		self.recognizedWord = value[0]
 		self.wordSemaphore.release()
 		
@@ -73,14 +73,3 @@ class NaoProxy(ALModule):
 		
 	def runBehavior(self, behaviorName):
 		self.behaviorManager.runBehavior(behaviorName)
-		
-# IP = "10.15.94.137"
-# broker = ALBroker("myBroker", "0.0.0.0", 0, IP, 9559) 
-# try:
-# 	NaoProxy = NaoProxy(IP)
-# 	for i in range(0,5):
-# 		print(NaoProxy.recognizeWord(["si","no"]))
-# 		sleep(1)
-# except:
-# 	pass
-# broker.shutdown()

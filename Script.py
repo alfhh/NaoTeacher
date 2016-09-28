@@ -35,19 +35,33 @@ class Program():
             
     
     def scriptIf(self):
-        
+        self.imgHandler.showImage("Slide1.JPG")
         self.nao.postureProxy.post.goToPosture("Stand", 1.0)
         self.nao.say("Buenos días! Mi nombre es Nao")   
+        self.imgHandler.showImage("Slide2.JPG")
         self.nao.say("El día de hoy, seré su profesor de programación. Espero se diviertan y aprendan mucho.")
+        self.imgHandler.showImage("Slide3.JPG")
         self.nao.textAnimatedToSpeech.say("^start() La programación, es un tema es muy interesante para mí, pues gracias a la programación, yo existo, puedo hablar, me puedo mover y puedo pensar. Aparte de éstas tareas sencillas, también puedo hacer cosas más complicadas, como hacer yoga y bailar. Y todo esto gracias a la magia de la programación. Les enseñaré. Espero no caerme, ja já ja. ")
         self.nao.runBehavior("tai")
+        self.imgHandler.showImage("Slide4.JPG")
         self.nao.textAnimatedToSpeech.say("¿Que les pareció?, Interesante? Cosas como éstas y muchas más se pueden lograr a través de la programación. Hoy les enseñaré a programar, en el lenguaje llamado páiton. Los temas que les enseñaré, hoy son: Variables, condicionales, ciclos y listas.")
-        self.nao.textAnimatedToSpeech.say("Les explicaré, poco a poco y de forma entretenida. ¿Qué les parece si empezamos con un juego? Para esto, necesitarée un voluntario")
+        self.imgHandler.showImage("Slide5.JPG")
+        self.nao.textAnimatedToSpeech.say("Les explicaré, poco a poco y de forma entretenida. ¿Qué les parece si empezamos con un juego? Para esto, necesitarée un voluntario.")
         self.nao.turn()
-        self.nao.runBehavior("turn")
-        self.nao.textAnimatedToSpeech.say("Les explicaré, poco a poco y de forma entretenida. ¿Qué les parece si empezamos con un juego? Para esto, necesitarée un voluntario")
+        self.nao.behaviorManager.post.runBehavior("turn")
+        self.imgHandler.showImage("Slide6.JPG")
+        self.nao.say("Aquí tenemos la lista de todos los alumnos. Eligiré una persona al azar.")
+        self.nao.say("Pamela! Mi elección es Pamela. ¿Te gustaría jugar conmigo? Pasa al frente por favor Pamela.")
         self.nao.unturn()
-        
+        self.nao.behaviorManager.post.runBehavior("relax")
+        self.imgHandler.showImage("Slide7.JPG")
+        self.nao.textAnimatedToSpeech.say("Pamela, haremos lo siguiente: en mi cabeza tengo 3 botones, uno en atrás, uno en medio y uno adelante. Cuando levante mi brazo izquierdo, deberás presionar el botón delantero. Cuando levante mi brazo derecho, deberás presionar mi botón trasero. Correcto?.")
+        self.nao.textAnimatedToSpeech.say("Comencemos.") 
+        self.gameIf()
+        self.nao.textAnimatedToSpeech.say("Pamela, muchas gracias por jugar conmigo. Lo has hecho muy bien! Por favor pasa a sentarte.")
+        self.nao.postureProxy.post.goToPosture("Stand", 1.0)
+        self.nao.say("Pamela, muchas gracias por jugar conmigo. Lo has hecho muy bien! Por favor pasa a sentarte para explicarles un poco.")
+       
         word = self.nao.recognizeWord(["uno", "dos", "tres", "cuatro", "cinco"])
         self.finchGame(word) # Call the finch game
         sleep(8)
@@ -64,6 +78,7 @@ class Program():
 
             
             self.scriptIf()
+            self.imgHandler.exit()
         except:
             pass
         

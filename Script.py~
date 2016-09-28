@@ -41,38 +41,6 @@ class Program():
         
         broker.shutdown()
 
-    def gameIf(self):
-        for x in range(0,5):
-            choice = randint(1,2)
-            
-            intento=0
-            if choice == 1:
-                self.nao.runBehavior("rightHand")
-                
-                sensors = []
-                while "Head/Touch/Front" not in sensors and "Head/Touch/Rear" not in sensors and intento < 5:
-                    sensors = self.nao.awaitTouchedSensors()
-                    print(sensors)
-                    intento = intento+1
-                    
-                if "Head/Touch/Rear" in sensors:
-                    self.nao.say("Correcto")
-                else:
-                    self.nao.say("Incorrecto")
-            if choice == 2:
-                self.nao.runBehavior("leftHand")
-                
-                sensors = []
-                while "Head/Touch/Front" not in sensors and "Head/Touch/Rear" not in sensors and intento < 5:
-                    sensors = self.nao.awaitTouchedSensors()
-                    print(sensors)
-                    intento = intento+1
-                    
-                if "Head/Touch/Front" in sensors:
-                    self.nao.say("Correcto")
-                else:
-                    self.nao.say("Incorrecto")
-
 NaoModule1 = None
 program = Program()
 program.run("10.15.94.137")

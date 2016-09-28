@@ -13,29 +13,29 @@ class Program():
         self.nao = NaoProxy(NaoIP)
         self.imgHandler = ImageHandler()
         
-        self.nao.preloadBehavior("rightHand")
-        self.nao.preloadBehavior("leftHand")
-        self.nao.preloadBehavior("recogWord")
+        #self.nao.preloadBehavior("rightHand")
+        #self.nao.preloadBehavior("leftHand")
+        #self.nao.preloadBehavior("recogWord")
     
     def scriptIf(self):
         
         self.nao.say("Si dicen 'negro', levanto mi mano derecha. Si no, levanto mi mano izquierda.")
         
 #         self.nao.setVocabulary(["blanco", "negro"])
-#         word = self.nao.runBehavior("recogWord")
+#         #word = self.nao.runBehavior("recogWord")
         
         word = "negro";
         
-        if (word == "negro"):
-            self.nao.runBehavior("rightHand")
-        else:
-            self.nao.runBehavior("leftHand")
+        #if (word == "negro"):
+            #self.nao.runBehavior("rightHand")
+        #else:
+            #self.nao.runBehavior("leftHand")
         
         self.nao.say("Eso fue una condición. Dije que si algo pasaba, haría una cosa, pero si esa condición no se complía, haría otra cosa. Las estructuras condicionales son la manera en que las computadoras toman decisiones.")
         time.sleep(1)
         
         self.nao.say("Ahora, pongamos lo que acabo de decir en lo que parece código.")
-        self.imgHandler.showImage("pseudocodigoIf.png")
+        self.imgHandler.showImage("pseudcodigoIf.png")
         time.sleep(2)
         
         self.nao.say("Ahora juguemos un poco con esta estructura condicional.")
@@ -68,7 +68,7 @@ class Program():
     def run(self):
         self.scriptIf()
 
-program = Program("10.15.94.137")
+program = Program("10.15.90.95")
 print("listo")
 program.run()  
 

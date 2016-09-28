@@ -15,7 +15,9 @@ import sys
 VENDOR_ID = 0x2354
 DEVICE_ID = 0x1111
 
-HIDAPI_LIBRARY_PATH = os.environ.get('HIDAPI_LIB_PATH', '/finchLibs')
+
+HIDAPI_LIBRARY_PATH = os.environ.get('HIDAPI_LIB_PATH', './finchRobot/')
+
 PING_FREQUENCY_SECONDS = 2.0 # seconds
 
 # Detect which operating system is present and load corresponding library

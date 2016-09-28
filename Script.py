@@ -119,3 +119,4 @@ class Program():
 NaoModule1 = None
 program = Program()
 program.run("10.15.94.137")
+studentList = ['Virgilio', 'Adrián', 'Luz Valeria', 'César', 'Marian', 'Kelly', 'Alex', 'Pamela', 'Andrés', 'Fanny', 'María De Los Ángeles' , 'Frida', 'Glen', 'Juan Ángel', 'Maricris', 'Yander', 'Diego', 'Valeria', 'Paco', 'Dana', 'Daniela', 'Angel', 'Valentina', 'Marcelo', 'Ericka', 'Daniel', 'Luis']

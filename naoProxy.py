@@ -64,7 +64,7 @@ class NaoProxy(ALModule):
 			Called when word is recognized
 		"""
 		memory.unsubscribeToEvent("WordRecognized","NaoModule1")
-		self.recognizedWord = value[0]
+		self.recognizedWord = value
 		self.wordSemaphore.release()
 		
 	def say(self, string):

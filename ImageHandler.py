@@ -1,5 +1,5 @@
-import Image
-import ImageTk
+from PIL import Image
+from PIL import ImageTk
 from Tkinter import Tk, Label
 import threading
 

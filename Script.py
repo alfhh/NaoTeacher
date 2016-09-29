@@ -23,6 +23,12 @@ class Program():
             "cinco": 5,
         }
         return switcher.get(argument, 1)
+    
+    def getRamdomStuden(self):
+        return "Pamela"
+    
+    def getRamdomStuden2(self):  
+        return "Paco"
         
     def finchGame(self, loopWord):
         fControl = FinchController()
@@ -42,7 +48,7 @@ class Program():
         self.nao.say("El día de hoy, seré su profesor de programación. Espero se diviertan y aprendan mucho.")
         self.imgHandler.showImage("Slide3.JPG")
         self.nao.textAnimatedToSpeech.say("^start() La programación, es un tema es muy interesante para mí, pues gracias a la programación, yo existo, puedo hablar, me puedo mover y puedo pensar. Aparte de éstas tareas sencillas, también puedo hacer cosas más complicadas, como hacer yoga y bailar. Y todo esto gracias a la magia de la programación. Les enseñaré. Espero no caerme, ja já ja. ")
-        self.nao.runBehavior("tai")
+        #self.nao.runBehavior("tai")
         self.imgHandler.showImage("Slide4.JPG")
         self.nao.textAnimatedToSpeech.say("¿Que les pareció?, Interesante? Cosas como éstas y muchas más se pueden lograr a través de la programación. Hoy les enseñaré a programar, en el lenguaje llamado páiton. Los temas que les enseñaré, hoy son: Variables, condicionales, ciclos y listas.")
         self.imgHandler.showImage("Slide5.JPG")
@@ -51,17 +57,23 @@ class Program():
         self.nao.behaviorManager.post.runBehavior("turn")
         self.imgHandler.showImage("Slide6.JPG")
         self.nao.say("Aquí tenemos la lista de todos los alumnos. Eligiré una persona al azar.")
-        self.nao.say("Pamela! Mi elección es Pamela. ¿Te gustaría jugar conmigo? Pasa al frente por favor Pamela.")
+        
+        seletedStudent = self.getRamdomStuden()
+        
+        self.nao.say("Mi elección es" + seletedStudent + ". ¿Te gustaría jugar conmigo? Pasa al frente por favor"+ seletedStudent + " .")
         self.nao.unturn()
-        self.nao.textToSpeech.post.say("Pamela, haremos lo siguiente: en mi cabeza tengo 3 botones, uno en atrás, uno en medio y uno adelante. Cuando levante mi brazo izquierdo, deberás presionar el botón delantero. Cuando levante mi brazo derecho, deberás presionar mi botón trasero. Correcto?.")
+        self.nao.textToSpeech.post.say(seletedStudent +  ", haremos lo siguiente: en mi cabeza tengo 3 botones, uno en atrás, uno en medio y uno adelante. Cuando levante mi brazo izquierdo, deberás presionar el botón delantero. Cuando levante mi brazo derecho, deberás presionar mi botón trasero. Correcto?.")
+
+        self.nao.postureProxy.post.goToPosture("Sit", 1.0)
+
         self.imgHandler.showImage("Slide7.JPG")
-        self.nao.runBehavior("relax")
-        self.nao.say("Comencemos.") 
+
+        self.nao.textAnimatedToSpeech.say("Comencemos.") 
         self.gameIf()
         self.nao.postureProxy.post.goToPosture("Stand", 1.0)
-        self.nao.say("Pamela, muchas gracias por jugar conmigo. Lo has hecho muy bien! Por favor pasa a sentarte para explicarles un poco.")
+        self.nao.say(seletedStudent + ", muchas gracias por jugar conmigo. Lo has hecho muy bien! Por favor pasa a sentarte para explicarles un poco.")
         self.nao.textAnimatedToSpeech.say("Analicemos como es que se codificaría éste juego.")
-        self.imgHandler.showImage("Slide15.JPG")
+        self.imgHandler.showImage("Slide15.jpg")
         self.nao.turn()
         self.nao.behaviorManager.post.runBehavior("turn")
         self.nao.say("Lo que tenemos a continuación es el código del juego que acabamos de jugar.")
@@ -76,20 +88,23 @@ class Program():
         self.imgHandler.showImage("Slide10.JPG")
         self.imgHandler.showImage("Slide11.JPG")
         self.nao.textAnimatedToSpeech.say("Los ciclos sirven para repetir una acción un número determinado de veces. Los ciclos utilizan el concepto de condicionales que vimos anteriormente. ¿Recuerdan bien las partes de un condicional? Un condicional tiene una pregunta y dos acciones, las cuales dependen de la respuesta. Por lo tanto, al usar un while necesitamos de un condicional, y si este condicional nos regresa una respuesta positiva entonces la acción se repetirá, de lo contrario el ciclo termina. Les daré un ejemplo de un ciclo. Condición: Mientras el robot Nao tenga batería, Acción a repetir: Hablar, Acción de final de ciclo: Apagar Nao. Realicemos otra actividad, esta vez seleccionaré a otro de ustedes.")
-         
+        
+        seletedStudent = self.getRamdomStuden2()
+        
         self.imgHandler.showImage("Slide12.JPG")
-        self.nao.textAnimatedToSpeech.say("(Persona ) puedes venir al frente.")
-         
+        self.nao.textAnimatedToSpeech.say( seletedStudent + " puedes venir al frente.")
+        
         self.imgHandler.showImage("Slide13.JPG")
         self.nao.textAnimatedToSpeech.say("Para este ejercicio también necesito la ayuda de mi buen amigo, el robot finch, el cual dará un número de vueltas dependiendo del número que tu me digas.")
-        sleep(1)
         self.nao.textAnimatedToSpeech.say("Por favor dime un número de 1 al 5.")
          
         word = self.nao.recognizeWord(["uno", "dos", "tres", "cuatro", "cinco"])
         self.finchGame(word) # Call the finch game
-         
-        self.nao.textAnimatedToSpeech.say("Perfecto, muchas gracias (PERSONA) puedes volver a tu lugar, muchas gracias por tu ayuda robot Finch.")
-         
+
+        
+        self.nao.textAnimatedToSpeech.say("Perfecto, muchas gracias " + seletedStudent + " puedes volver a tu lugar, muchas gracias por tu ayuda robot Finch.")
+
+        
         self.nao.textAnimatedToSpeech.say("¿Se dieron cuenta como la programación nos ayuda realizar cosas increibles?")
          
         self.nao.textAnimatedToSpeech.say("Nunca duden del poder de la programación, ya que ustedes con su gran capacidad mental y la programación, pueden crear cualquier cosa.")
@@ -151,3 +166,4 @@ class Program():
 NaoModule1 = None
 program = Program()
 program.run("10.15.94.137")
+studentList = ['Virgilio', 'Adrián', 'Luz Valeria', 'César', 'Marian', 'Kelly', 'Alex', 'Andrés', 'Fanny', 'María De Los Ángeles' , 'Frida', 'Glen', 'Juan Ángel', 'Maricris', 'Yander', 'Diego', 'Valeria', 'Dana', 'Daniela', 'Angel', 'Valentina', 'Marcelo', 'Ericka', 'Daniel', 'Luis', 'Pamela', 'Paco']

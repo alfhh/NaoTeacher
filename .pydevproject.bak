@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?eclipse-pydev version="1.0"?><pydev_project>
-<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">Default</pydev_property>
-<pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.7</pydev_property>
 <pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
 <path>/${PROJECT_DIR_NAME}</path>
 </pydev_pathproperty>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.7</pydev_property>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">Default</pydev_property>
+
 <pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
+<<<<<<< HEAD
 <path>/home/lsanchez/Nao/NaoTeacher/pynaoqi-python2.7-2.1.2.17-linux64</path>
+=======
+<path>/home/a3-404/nao/pynaoqi-python-2.7-naoqi-1.14-linux64</path>
+>>>>>>> 4ae5a69c1cf2a2e0c23dc949db98eb0691ef7f23
 </pydev_pathproperty>
 </pydev_project>

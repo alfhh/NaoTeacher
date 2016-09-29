@@ -53,10 +53,10 @@ class Program():
         self.nao.say("Aquí tenemos la lista de todos los alumnos. Eligiré una persona al azar.")
         self.nao.say("Pamela! Mi elección es Pamela. ¿Te gustaría jugar conmigo? Pasa al frente por favor Pamela.")
         self.nao.unturn()
-        self.nao.behaviorManager.post.runBehavior("relax")
+        self.nao.textToSpeech.post.say("Pamela, haremos lo siguiente: en mi cabeza tengo 3 botones, uno en atrás, uno en medio y uno adelante. Cuando levante mi brazo izquierdo, deberás presionar el botón delantero. Cuando levante mi brazo derecho, deberás presionar mi botón trasero. Correcto?.")
         self.imgHandler.showImage("Slide7.JPG")
-        self.nao.textAnimatedToSpeech.say("Pamela, haremos lo siguiente: en mi cabeza tengo 3 botones, uno en atrás, uno en medio y uno adelante. Cuando levante mi brazo izquierdo, deberás presionar el botón delantero. Cuando levante mi brazo derecho, deberás presionar mi botón trasero. Correcto?.")
-        self.nao.textAnimatedToSpeech.say("Comencemos.") 
+        self.nao.runBehavior("relax")
+        self.nao.say("Comencemos.") 
         self.gameIf()
         self.nao.postureProxy.post.goToPosture("Stand", 1.0)
         self.nao.say("Pamela, muchas gracias por jugar conmigo. Lo has hecho muy bien! Por favor pasa a sentarte para explicarles un poco.")
@@ -71,37 +71,32 @@ class Program():
         self.imgHandler.showImage("Slide9.JPG")
         self.nao.textToSpeech.post.say("Una condicional está compuesta de una pregunta y de dos acciones, la acción seleccionada depende de la respuesta a la pregunta inicial. Veamos un ejemplo. La pregunta aquí es, ¿Tienes diez o más pesos? Si la respuesta es sí, entonces ejecutamos la acción de Acción, comprar un dulce; si la respuesta es nó, habrá que ejecutar la acción de buscar más dinero. En la presentación pueden ver como se haría esta pregunta, o condicional en programación. El juego de hace rato, en donde tocaban los botones de mi cabeza, depende de los condicionales para funcionar.") 
         self.nao.unturn()
-        
+         
         self.nao.textAnimatedToSpeech.say("Los condicionales son muy útiles, ya que nos ayudan a usar otras herramientas, como los ciclos, o como yo los conozco..")
         self.imgHandler.showImage("Slide10.JPG")
-        sleep(3)
         self.imgHandler.showImage("Slide11.JPG")
         self.nao.textAnimatedToSpeech.say("Los ciclos sirven para repetir una acción un número determinado de veces. Los ciclos utilizan el concepto de condicionales que vimos anteriormente. ¿Recuerdan bien las partes de un condicional? Un condicional tiene una pregunta y dos acciones, las cuales dependen de la respuesta. Por lo tanto, al usar un while necesitamos de un condicional, y si este condicional nos regresa una respuesta positiva entonces la acción se repetirá, de lo contrario el ciclo termina. Les daré un ejemplo de un ciclo. Condición: Mientras el robot Nao tenga batería, Acción a repetir: Hablar, Acción de final de ciclo: Apagar Nao. Realicemos otra actividad, esta vez seleccionaré a otro de ustedes.")
-        
+         
         self.imgHandler.showImage("Slide12.JPG")
         self.nao.textAnimatedToSpeech.say("(Persona ) puedes venir al frente.")
-        sleep(5)
-        
+         
         self.imgHandler.showImage("Slide13.JPG")
         self.nao.textAnimatedToSpeech.say("Para este ejercicio también necesito la ayuda de mi buen amigo, el robot finch, el cual dará un número de vueltas dependiendo del número que tu me digas.")
         sleep(1)
         self.nao.textAnimatedToSpeech.say("Por favor dime un número de 1 al 5.")
-        
+         
         word = self.nao.recognizeWord(["uno", "dos", "tres", "cuatro", "cinco"])
         self.finchGame(word) # Call the finch game
-        sleep(8)
-        
+         
         self.nao.textAnimatedToSpeech.say("Perfecto, muchas gracias (PERSONA) puedes volver a tu lugar, muchas gracias por tu ayuda robot Finch.")
-        sleep(8)
-        
+         
         self.nao.textAnimatedToSpeech.say("¿Se dieron cuenta como la programación nos ayuda realizar cosas increibles?")
-        sleep(2)
-        
+         
         self.nao.textAnimatedToSpeech.say("Nunca duden del poder de la programación, ya que ustedes con su gran capacidad mental y la programación, pueden crear cualquier cosa.")
-        
+         
         self.imgHandler.showImage("Slide14.JPG")
         self.nao.textAnimatedToSpeech.say("Les quiero agradecer por su cooperación y por ponerme atención, con esto daremos por terminada la clase, espero que hayan aprendido mucho.")
-        
+         
         
     def run(self, IP):
         broker = ALBroker("myBroker", "0.0.0.0", 0, IP, 9559)

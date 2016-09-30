@@ -39,6 +39,9 @@ class ImageHandler(threading.Thread):
         self.label.image = photo
 
     def run(self):
+        """ Runs the thread and the window for the images.
+
+        """
         self.root = Tk()
         self.root.protocol("WM_DELETE_WINDOW", self.exit)
         

@@ -137,6 +137,9 @@ class NaoProxy(ALModule):
 		self.textToSpeech.say(string)
 		
 	def turn(self):
+		""" Turns the robot 45 degrees clockwise
+		
+		"""
 		self.motionProxy.wakeUp()
 		self.postureProxy.goToPosture("StandInit", 0.5)
 		self.motionProxy.setMoveArmsEnabled(True, True)
@@ -148,6 +151,9 @@ class NaoProxy(ALModule):
 		self.motionProxy.waitUntilMoveIsFinished()
 		
 	def unturn(self):
+		""" Turns the robot 45 degrees counter-clockwise
+		
+		"""
 		self.motionProxy.wakeUp()
 		self.postureProxy.goToPosture("StandInit", 0.5)
 		self.motionProxy.setMoveArmsEnabled(True, True)

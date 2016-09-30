@@ -36,10 +36,11 @@ class Program():
             
     
     def scriptIf(self):
+        self.nao.postureProxy.post.goToPosture("Sit", 1.0)
         self.imgHandler.showImage("Slide2.JPG")
+         
         self.nao.postureProxy.post.goToPosture("Stand", 1.0)
-        self.nao.say("buenos días! mi nombre es nao")   
-        self.nao.postureProxy.post.goToPosture("Stand", 1.0)
+        self.nao.say("buenos días! mi nombre es nao")
         self.imgHandler.showImage("Slide2.JPG")
         self.nao.say("el día de hoy, seré su profesor de programación. espero se diviertan y aprendan mucho.")
         self.imgHandler.showImage("Slide3.JPG")
@@ -58,7 +59,7 @@ class Program():
         newchoice = choice;
         seletedstudent = studentList[newchoice]
         sleep(2)
-        self.nao.say("mi elección es" + seletedstudent + "." + seletedstudent + "¿te gustaría jugar conmigo? pasa al frente por favor "+ seletedstudent + ".")
+        self.nao.say("mi elección es" + seletedstudent + ". " + seletedstudent + "¿te gustaría jugar conmigo? pasa al frente por favor "+ seletedstudent + ".")
         self.nao.unturn()
         self.imgHandler.showImage("Slide7.JPG")
         self.nao.textToSpeech.post.say(seletedstudent +  ", haremos lo siguiente: en mi cabeza tengo 3 botones, uno en atrás, uno en medio y uno adelante. cuando levante mi brazo izquierdo, deberás presionar el botón delantero. cuando levante mi brazo derecho, deberás presionar mi botón trasero. correcto?.")
@@ -140,6 +141,7 @@ class Program():
         self.nao.behaviorManager.post.runBehavior("turn")
         self.nao.say("Así quedaría el código de éste ciclo.")
         self.nao.unturn()
+        raw_input("prompt")
         self.nao.textAnimatedToSpeech.say("Realicémos otra actividad, esta vez seleccionaré a otro de ustedes.")
         choice = randint(1,28)
         newchoice = choice;
@@ -153,9 +155,9 @@ class Program():
         while(word[1] < 0.5):
             self.nao.textAnimatedToSpeech.say("Por favor dime un número de 1 al 5.")       
             word = self.nao.recognizeWord(["uno", "dos", "tres", "cuatro", "cinco"])
-            self.finchGame(word) # Call the finch game
             print(word)
             self.nao.textAnimatedToSpeech.say(word[0])
+        self.finchGame(word[0]) # Call the finch game
         self.nao.textAnimatedToSpeech.say("Perfecto, muchas gracias " + seletedStudent + ", puedes volver a tu lugar, muchas gracias por tu ayuda robot Finsh.")
         self.imgHandler.showImage("Slide38.JPG")
         self.nao.textAnimatedToSpeech.say("Por último, queda el tema de Listas.")

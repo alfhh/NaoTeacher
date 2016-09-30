@@ -25,12 +25,6 @@ class Program():
         }
         return switcher.get(argument, 1)
     
-    def getRamdomStuden(self):
-        return "Pamela"
-    
-    def getRamdomStuden2(self):  
-        return "Paco"
-        
     def finchGame(self, loopWord):
         fControl = FinchController()
         fControl.__init__()
@@ -62,12 +56,13 @@ class Program():
         self.nao.say("aquí tenemos la lista de todos los alumnos. eligiré una persona al azar.")
         #'''
         
-        seletedstudent = self.getRamdomStuden()
+        choice = randint(1,28)
+        newchoice = choice;
         
 #         '''
-        self.nao.say("mi elección es" + seletedstudent + ". ¿te gustaría jugar conmigo? pasa al frente por favor "+ seletedstudent + ".")
+        self.nao.say("mi elección es" + studentList[newchoice] + ". ¿te gustaría jugar conmigo? pasa al frente por favor "+ studentList[newchoice] + ".")
         self.nao.unturn()
-        self.nao.textToSpeech.post.say(seletedstudent +  ", haremos lo siguiente: en mi cabeza tengo 3 botones, uno en atrás, uno en medio y uno adelante. cuando levante mi brazo izquierdo, deberás presionar el botón delantero. cuando levante mi brazo derecho, deberás presionar mi botón trasero. correcto?.")
+        self.nao.textToSpeech.post.say(studentList[newchoice] +  ", haremos lo siguiente: en mi cabeza tengo 3 botones, uno en atrás, uno en medio y uno adelante. cuando levante mi brazo izquierdo, deberás presionar el botón delantero. cuando levante mi brazo derecho, deberás presionar mi botón trasero. correcto?.")
         #'''
         
 #         '''
@@ -82,7 +77,7 @@ class Program():
         
 #         '''
         self.nao.postureProxy.post.goToPosture("Stand", 1.0)
-        self.nao.say(seletedstudent + ", muchas gracias por jugar conmigo. lo has hecho muy bien! por favor pasa a sentarte para explicarles un poco.")
+        self.nao.say(studentList[newchoice] + ", muchas gracias por jugar conmigo. lo has hecho muy bien! por favor pasa a sentarte para explicarles un poco.")
         self.nao.textAnimatedToSpeech.say("analicemos como es que se codificaría éste juego.")
         self.imgHandler.showImage("Slide15.jpg")
         self.nao.turn()
@@ -104,11 +99,12 @@ class Program():
         self.nao.textAnimatedToSpeech.say("Los ciclos sirven para repetir una acción un número determinado de veces. Los ciclos utilizan el concepto de condicionales que vimos anteriormente. ¿Recuerdan bien las partes de un condicional? Un condicional tiene una pregunta y dos acciones, las cuales dependen de la respuesta. Por lo tanto, al usar un while necesitamos de un condicional, y si este condicional nos regresa una respuesta positiva entonces la acción se repetirá, de lo contrario el ciclo termina. Les daré un ejemplo de un ciclo. Condición: Mientras el robot Nao tenga batería, Acción a repetir: Hablar, Acción de final de ciclo: Apagar Nao. Realicemos otra actividad, esta vez seleccionaré a otro de ustedes.")
         #'''
         
-        seletedStudent = self.getRamdomStuden2()
+        choice = randint(1,28)
+        newchoice = choice;
         
 #         '''
         self.imgHandler.showImage("Slide12.JPG")
-        self.nao.textAnimatedToSpeech.say( seletedStudent + ", puedes venir al frente.")
+        self.nao.textAnimatedToSpeech.say( studentList[newchoice] + ", puedes venir al frente.")
         self.imgHandler.showImage("Slide13.JPG")
         self.nao.textAnimatedToSpeech.say("Para este ejercicio también necesito la ayuda de mi buen amigo, el robot finsh, el cual dará un número de vueltas dependiendo del número que tu me digas.")
         #'''
@@ -121,7 +117,7 @@ class Program():
 #             self.finchGame(word) # Call the finch game
             print(word)
 #             self.nao.textAnimatedToSpeech.say(word[0])
-        self.nao.textAnimatedToSpeech.say("Perfecto, muchas gracias " + seletedStudent + ", puedes volver a tu lugar, muchas gracias por tu ayuda robot Finsh.")
+        self.nao.textAnimatedToSpeech.say("Perfecto, muchas gracias " + studentList[newchoice] + ", puedes volver a tu lugar, muchas gracias por tu ayuda robot Finsh.")
         #'''
         
 #         '''
